@@ -16,37 +16,37 @@
 import TabPane from './components/TabPane'
 
 export default {
-  name: 'Tab',
-  components: { TabPane },
-  data() {
-    return {
-      tabMapOptions: [
-        { label: 'China', key: 'CN' },
-        { label: 'USA', key: 'US' },
-        { label: 'Japan', key: 'JP' },
-        { label: 'Eurozone', key: 'EU' }
-      ],
-      activeName: 'CN',
-      createdTimes: 0
-    }
-  },
-  watch: {
-    activeName(val) {
-      this.$router.push(`${this.$route.path}?tab=${val}`)
-    }
-  },
-  created() {
+    name: 'Tab',
+    components: { TabPane },
+    data() {
+        return {
+            tabMapOptions: [
+                { label: 'China', key: 'CN' },
+                { label: 'USA', key: 'US' },
+                { label: 'Japan', key: 'JP' },
+                { label: 'Eurozone', key: 'EU' }
+            ],
+            activeName: 'CN',
+            createdTimes: 0
+        }
+    },
+    watch: {
+        activeName(val) {
+            this.$router.push(`${this.$route.path}?tab=${val}`)
+        }
+    },
+    created() {
     // init the default selected tab
-    const tab = this.$route.query.tab
-    if (tab) {
-      this.activeName = tab
+        const tab = this.$route.query.tab
+        if (tab) {
+            this.activeName = tab
+        }
+    },
+    methods: {
+        showCreatedTimes() {
+            this.createdTimes = this.createdTimes + 1
+        }
     }
-  },
-  methods: {
-    showCreatedTimes() {
-      this.createdTimes = this.createdTimes + 1
-    }
-  }
 }
 </script>
 
